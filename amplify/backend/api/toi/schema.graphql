@@ -1,0 +1,33 @@
+enum EMessageType {
+  SENT
+  RECEIVED
+}
+
+type TMessage {
+  text: String
+  media: AWSURL
+  timestamp: AWSTimestamp!
+  type: EMessageType!
+  sender: ID!
+  receiver: ID!
+}
+
+type Message @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  text: String
+  media: AWSURL
+  timestamp: AWSTimestamp!
+  type: EMessageType
+  receiver: ID!
+  sender: ID!
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String!
+  email: String!
+  cognitoId: String!
+  recentChats: [TMessage]
+  avatarKey: String
+}
+ 

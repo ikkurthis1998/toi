@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3toistorage593fc399",
+  "bucketName": "toi-storage-593fc399",
+  "policyUUID": "1a83fb66",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

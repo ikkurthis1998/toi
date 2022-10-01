@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-toi-staging-40704-authRole",
+      "UnauthRoleArn": "arn:aws:iam::075327997557:role/amplify-toi-staging-40704-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::075327997557:role/amplify-toi-staging-40704-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-toi-staging-40704-deployment",
+      "UnauthRoleName": "amplify-toi-staging-40704-unauthRole",
+      "StackName": "amplify-toi-staging-40704",
+      "StackId": "arn:aws:cloudformation:ap-south-1:075327997557:stack/amplify-toi-staging-40704/0348e2c0-3ee3-11ed-b754-0acf60d3b5ec",
+      "AmplifyAppId": "d2nuk9v7ld8w83"
+    },
+    "categories": {
+      "auth": {
+        "toi": {}
+      }
+    }
+  }
+}

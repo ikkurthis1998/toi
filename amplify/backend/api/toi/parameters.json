@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "toi",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2022-09-28T14:30:03.527Z"
+}

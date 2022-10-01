@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Amplify } from "aws-amplify";
+import React from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Divider, withAuthenticator, WithAuthenticatorProps } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+
+import UserController from "./controller/User";
+
+import awsExports from "./aws-exports";
+import { ChatEngine } from "./components/ChatEngine";
+import { Header } from "./components/Header";
+import { User } from "./models";
+Amplify.configure(awsExports);
+
+function App({ signOut, user }: WithAuthenticatorProps) {
+	const [storedUser, setStoredUser] = React.useState<User | undefined>(undefined);
+	React.useEffect(() => {
+		(async () => {
+			if (user) {
+				const userControls = new UserController({
+					username: user.username,
+				});
+				await userControls.initiate({ user });
+				let { data } = await userControls.get();
+				setStoredUser(data);
+			}
+		})();
+	}, [user]);
+	return (
+		<div className="App">
+			<Header
+				signOut={signOut}
+				user={storedUser}
+			/>
+			<ChatEngine />
+		</div>
+	);
 }
 
-export default App;
+export default withAuthenticator(App);
